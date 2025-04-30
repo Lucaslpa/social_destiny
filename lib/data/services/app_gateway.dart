@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:social_destiny/data/services/models/post.dart';
+import 'package:social_destiny/data/services/models/post_api.dart';
 import 'package:social_destiny/utils/result.dart';
 
 class Posts {
@@ -15,7 +15,6 @@ class Posts {
             (jsonDecode(response.body) as List)
                 .map((data) => PostApi.fromJson(data))
                 .toList();
-        print(postApiList);
         return Result.success(postApiList);
       }
       return Result.error("Failed to get posts");

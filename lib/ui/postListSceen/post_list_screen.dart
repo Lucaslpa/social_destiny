@@ -20,19 +20,28 @@ class _PostListScreenState extends State<PostListScreen> {
 
   Future<void> _loadPosts() async {
     await widget.viewModel.getPostsCommand.execute();
-    setState(() {});
+    setState(
+      () {},
+    ); // Atualiza o estado para reconstruir o widget após carregar os posts
   }
 
   @override
   Widget build(BuildContext context) {
+    final isLoading = widget.viewModel.getPostsCommand.running;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Posts')),
-      body: ListView.builder(
-        itemCount: widget.viewModel.posts.length,
-        itemBuilder: (context, index) {
-          return PostCard(post: widget.viewModel.posts[index]);
-        },
-      ),
+      body:
+          isLoading
+              ? Center(child: CircularProgressIndicator())
+              : widget.viewModel.posts.isEmpty
+              ? Center(child: Text('Nenhum post encontrado'))
+              : ListView.builder(
+                itemCount: widget.viewModel.posts.length,
+                itemBuilder: (context, index) {
+                  return PostCard(post: widget.viewModel.posts[index]);
+                },
+              ),
     );
   }
 }

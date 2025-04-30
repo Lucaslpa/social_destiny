@@ -1,7 +1,7 @@
 import 'package:social_destiny/data/repositories/models/post.dart';
-import 'package:social_destiny/data/repositories/post_repositorie.dart';
+import 'package:social_destiny/data/repositories/post/post_repositorie.dart';
 import 'package:social_destiny/data/services/app_gateway.dart';
-import 'package:social_destiny/data/services/models/post.dart';
+import 'package:social_destiny/data/services/models/post_api.dart';
 import 'package:social_destiny/utils/result.dart';
 
 class PostRepositoryRemote implements PostRepository {

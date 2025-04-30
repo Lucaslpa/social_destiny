@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:social_destiny/data/repositories/post_repositorie_remote.dart';
+import 'package:provider/provider.dart';
+import 'package:social_destiny/config/dependencies.dart';
+import 'package:social_destiny/data/repositories/post/post_repositorie_remote.dart';
 import 'package:social_destiny/data/services/app_gateway.dart';
 import 'package:social_destiny/ui/postListSceen/post_list_screen.dart';
 import 'package:social_destiny/ui/postListSceen/post_list_screen_view_model.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiProvider(providers: providersRemote, child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,13 +15,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final postRepositoryRemote = PostRepositoryRemote(
-      appGateway: AppGateway(url: "http://10.0.2.2:3000"),
-    );
     final viewModel = PostListScreenViewModel(
-      postRepositoryRemote: postRepositoryRemote,
+      postRepositoryRemote: context.read(),
     );
-
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
