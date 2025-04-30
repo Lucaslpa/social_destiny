@@ -31,6 +31,17 @@ class Posts {
     }
     return Result.error("Failed to get post");
   }
+
+  Future<Result<void>> updatePost(PostApi post) async {
+    final response = await http.put(
+      Uri.parse('$url/posts/${post.id}'),
+      body: jsonEncode(post.toJson()),
+    );
+    if (response.statusCode == 200) {
+      return Result.success(null);
+    }
+    return Result.error("Failed to updatePost post");
+  }
 }
 
 class AppGateway {

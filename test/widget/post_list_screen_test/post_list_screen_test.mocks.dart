@@ -88,4 +88,17 @@ class MockPosts extends _i1.Mock implements _i2.Posts {
             ),
           )
           as _i4.Future<_i5.Result<_i6.PostApi>>);
+
+  @override
+  _i4.Future<_i5.Result<void>> updatePost(_i6.PostApi? post) =>
+      (super.noSuchMethod(
+            Invocation.method(#updatePost, [post]),
+            returnValue: _i4.Future<_i5.Result<void>>.value(
+              _i3.dummyValue<_i5.Result<void>>(
+                this,
+                Invocation.method(#updatePost, [post]),
+              ),
+            ),
+          )
+          as _i4.Future<_i5.Result<void>>);
 }

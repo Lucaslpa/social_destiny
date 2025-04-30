@@ -53,8 +53,21 @@ class PostRepositoryRemote implements PostRepository {
   }
 
   @override
-  Future<String> updatePost(String id, String title, String body) {
-    // TODO: implement updatePost
-    throw UnimplementedError();
+  Future<Result<void>> updatePost(Post post) async {
+    final postApi = PostApi(
+      id: post.id,
+      userId: post.userId,
+      content: post.content,
+      image: post.image,
+      likes: post.likes,
+      createdAt: post.createdAt.toIso8601String(),
+    );
+    final result = await _appGateway.postsGateway.updatePost(postApi);
+    switch (result) {
+      case ApiSuccess<void>():
+        return Result.success(null);
+      case ApiError<void>():
+        return Result.error(result.message);
+    }
   }
 }

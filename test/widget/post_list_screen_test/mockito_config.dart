@@ -35,4 +35,5 @@ void configureMockito() {
   // Usamos a lista testPosts para que seja acessível tanto no provideDummy quanto nos testes
   provideDummy<Result<List<PostApi>>>(Result.success(testPosts));
   provideDummy<Result<PostApi>>(Result.success(testPosts.first));
+  provideDummy<Result<void>>(Result.success(null));
 }

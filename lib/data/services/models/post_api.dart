@@ -25,4 +25,26 @@ class PostApi {
       createdAt: json['createdAt'],
     );
   }
+
+  PostApi copyWith({int? likes}) {
+    return PostApi(
+      id: id,
+      userId: userId,
+      content: content,
+      image: image,
+      likes: likes ?? this.likes,
+      createdAt: createdAt,
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'userId': userId,
+      'content': content,
+      'image': image,
+      'likes': likes,
+      'createdAt': createdAt,
+    };
+  }
 }

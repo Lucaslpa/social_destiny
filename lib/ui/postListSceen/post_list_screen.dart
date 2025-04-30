@@ -39,7 +39,12 @@ class _PostListScreenState extends State<PostListScreen> {
               : ListView.builder(
                 itemCount: widget.viewModel.posts.length,
                 itemBuilder: (context, index) {
-                  return PostCard(post: widget.viewModel.posts[index]);
+                  return PostCard(
+                    post: widget.viewModel.posts[index],
+                    onLike:
+                        (post) =>
+                            widget.viewModel.likePostCommand.execute(post),
+                  );
                 },
               ),
     );
@@ -48,8 +53,10 @@ class _PostListScreenState extends State<PostListScreen> {
 
 class PostCard extends StatefulWidget {
   final Post post;
+  final Function(Post) onLike;
 
-  const PostCard({Key? key, required this.post}) : super(key: key);
+  const PostCard({Key? key, required this.post, required this.onLike})
+    : super(key: key);
 
   @override
   _PostCardState createState() => _PostCardState();
@@ -65,6 +72,7 @@ class _PostCardState extends State<PostCard> {
   }
 
   void _incrementLikes() {
+    widget.onLike(widget.post);
     setState(() {
       likes++;
     });

@@ -15,6 +15,14 @@ class Post {
     required this.createdAt,
   });
 
+  void like() {
+    likes++;
+  }
+
+  void unlike() {
+    likes--;
+  }
+
   factory Post.fromJson(Map<String, dynamic> json) {
     return Post(
       id: json['id'],
