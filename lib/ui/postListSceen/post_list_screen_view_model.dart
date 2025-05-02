@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:social_destiny/data/repositories/models/post.dart';
 import 'package:social_destiny/data/repositories/post/post_repositorie_remote.dart';
 import 'package:social_destiny/utils/command.dart';
@@ -18,6 +19,7 @@ class PostListScreenViewModel {
   }
 
   Future<Result<void>> _getPosts() async {
+    await Future.delayed(Duration(seconds: 2));
     final result = await postRepositoryRemote.getPosts();
     if (result is ApiSuccess<List<Post>>) {
       _posts = result.data;
