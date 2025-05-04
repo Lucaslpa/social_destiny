@@ -1,28 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:social_destiny/ui/create_post/create_poast_view_model.dart';
 
 class CreatePostScreen extends StatelessWidget {
-  CreatePostScreen({required this.createPostViewModel});
-  final CreatePostViewModel createPostViewModel;
+  CreatePostScreen({super.key, required this.viewModel});
+
+  final CreatePostViewModel viewModel;
   final _formKey = GlobalKey<FormState>();
   final _contentController = TextEditingController();
   final _imageUrlController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final isLoading = true; // Simulação de carregamento
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Criar Postagem'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              // Implementar lógica para salvar postagem
-            },
-          ),
-        ],
-      ),
+      appBar: AppBar(title: Text('Criar Postagem')),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Form(
@@ -68,16 +59,16 @@ class CreatePostScreen extends StatelessWidget {
                     // Validar e criar postagem
                     final content = _contentController.text;
                     final imageUrl = _imageUrlController.text;
-                    createPostViewModel.createPostCommand.execute(
+                    viewModel.createPostCommand.execute(
                       CreatePostArgs(content: content, urlImg: imageUrl),
                     );
                   }
                   // Implementar lógica para criar postagem
                 },
                 child: AnimatedBuilder(
-                  animation: createPostViewModel.createPostCommand,
+                  animation: viewModel.createPostCommand,
                   builder: (context, child) {
-                    return createPostViewModel.createPostCommand.running
+                    return viewModel.createPostCommand.running
                         ? SizedBox(
                           width: 20,
                           height: 20,

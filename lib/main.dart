@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:social_destiny/config/dependencies.dart';
+import 'package:social_destiny/routing/routing.dart';
 import 'package:social_destiny/ui/create_post/create_poast_view_model.dart';
 import 'package:social_destiny/ui/create_post/create_post_screen.dart';
 import 'package:social_destiny/ui/post_list/post_list_screen.dart';
@@ -22,12 +23,12 @@ class MyApp extends StatelessWidget {
     final createPostViewModel = CreatePostViewModel(
       postRepositoryRemote: context.read(),
     );
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Rede social',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: PostListScreen(viewModel: viewModel),
+      routerConfig: router,
     );
   }
 }

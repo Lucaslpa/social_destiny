@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:social_destiny/data/repositories/models/post.dart';
 import 'package:social_destiny/ui/post_list/post_list_screen_view_model.dart';
 
@@ -27,7 +28,14 @@ class _PostListScreenState extends State<PostListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Posts'),
-        actions: [IconButton(icon: const Icon(Icons.edit), onPressed: () {})],
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.edit),
+            onPressed: () {
+              context.push('/create-post');
+            },
+          ),
+        ],
       ),
       body: AnimatedBuilder(
         animation: widget.viewModel.getPostsCommand,
