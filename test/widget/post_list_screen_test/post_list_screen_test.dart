@@ -6,8 +6,8 @@ import 'package:network_image_mock/network_image_mock.dart';
 import 'package:social_destiny/data/repositories/post/post_repositorie_remote.dart';
 import 'package:social_destiny/data/services/app_gateway.dart';
 import 'package:social_destiny/data/services/models/post_api.dart';
-import 'package:social_destiny/ui/postListSceen/post_list_screen.dart';
-import 'package:social_destiny/ui/postListSceen/post_list_screen_view_model.dart';
+import 'package:social_destiny/ui/post_list/post_list_screen.dart';
+import 'package:social_destiny/ui/post_list/post_list_screen_view_model.dart';
 import 'package:social_destiny/utils/result.dart';
 
 import 'mockito_config.dart';

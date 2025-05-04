@@ -39,7 +39,6 @@ class PostApi {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
       'userId': userId,
       'content': content,
       'image': image,

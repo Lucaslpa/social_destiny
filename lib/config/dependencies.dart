@@ -2,7 +2,6 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:social_destiny/data/repositories/post/post_repositorie_remote.dart';
 import 'package:social_destiny/data/services/app_gateway.dart';
-import 'package:social_destiny/ui/postListSceen/post_list_screen_view_model.dart';
 
 List<SingleChildWidget> get providersRemote {
   return [

@@ -42,6 +42,25 @@ class Posts {
     }
     return Result.error("Failed to updatePost post");
   }
+
+  Future<Result<void>> deletePost(String id) async {
+    final response = await http.delete(Uri.parse('$url/posts/$id'));
+    if (response.statusCode == 200) {
+      return Result.success(null);
+    }
+    return Result.error("Failed to delete post");
+  }
+
+  Future<Result<void>> createPost(PostApi post) async {
+    final response = await http.post(
+      Uri.parse('$url/posts'),
+      body: jsonEncode(post.toJson()),
+    );
+    if (response.statusCode == 201) {
+      return Result.success(null);
+    }
+    return Result.error("Failed to create post");
+  }
 }
 
 class AppGateway {

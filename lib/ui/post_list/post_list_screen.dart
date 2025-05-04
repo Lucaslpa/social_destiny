@@ -5,7 +5,7 @@ import 'package:social_destiny/ui/post_list/post_list_screen_view_model.dart';
 class PostListScreen extends StatefulWidget {
   final PostListScreenViewModel viewModel;
 
-  const PostListScreen({Key? key, required this.viewModel}) : super(key: key);
+  const PostListScreen({super.key, required this.viewModel});
 
   @override
   _PostListScreenState createState() => _PostListScreenState();
@@ -64,8 +64,7 @@ class PostCard extends StatefulWidget {
   final Post post;
   final Function(Post) onLike;
 
-  const PostCard({Key? key, required this.post, required this.onLike})
-    : super(key: key);
+  const PostCard({super.key, required this.post, required this.onLike});
 
   @override
   _PostCardState createState() => _PostCardState();
