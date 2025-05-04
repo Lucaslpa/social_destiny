@@ -1,3 +1,5 @@
+import 'package:social_destiny/utils/date.dart';
+
 class Post {
   String id;
   int userId;
@@ -22,6 +24,8 @@ class Post {
   void unlike() {
     likes--;
   }
+
+  get createdAtFormatted => DateUtils.formatDate(createdAt.toIso8601String());
 
   factory Post.fromJson(Map<String, dynamic> json) {
     return Post(
