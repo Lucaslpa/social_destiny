@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_destiny/ui/create_post/create_poast_view_model.dart';
 
 class CreatePostScreen extends StatelessWidget {
-  CreatePostScreen({required this.createPostViewModel});
+  CreatePostScreen({super.key, required this.createPostViewModel});
   final CreatePostViewModel createPostViewModel;
   final _formKey = GlobalKey<FormState>();
   final _contentController = TextEditingController();
