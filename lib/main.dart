@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:social_destiny/config/dependencies.dart';
 import 'package:social_destiny/routing/routing.dart';
 import 'package:social_destiny/ui/create_post/create_poast_view_model.dart';
-import 'package:social_destiny/ui/create_post/create_post_screen.dart';
 import 'package:social_destiny/ui/post_list/post_list_screen.dart';
 import 'package:social_destiny/ui/post_list/post_list_screen_view_model.dart';
 

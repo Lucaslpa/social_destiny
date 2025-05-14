@@ -1,10 +1,10 @@
 import 'package:social_destiny/data/repositories/models/post.dart';
-import 'package:social_destiny/data/repositories/post/post_repositorie_remote.dart';
+import 'package:social_destiny/data/repositories/post/post_repositorie.dart';
 import 'package:social_destiny/utils/command.dart';
 import 'package:social_destiny/utils/result.dart';
 
 class PostListScreenViewModel {
-  final PostRepositoryRemote postRepositoryRemote;
+  final PostRepository postRepositoryRemote;
 
   late final Command0 getPostsCommand;
   late final Command1<void, Post> likePostCommand;
